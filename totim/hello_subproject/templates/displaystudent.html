@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <style>
+           /* =============================================================================
+   Responsive Table CSS
+   ========================================================================== */
+   
+
+   body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.dataTable {
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.dataTable thead, .dataTable tbody, .dataTable thead tr, .dataTable th {
+  display: block;
+}
+
+.dataTable thead {
+  float: left;
+}
+
+.dataTable tbody {
+  width: auto;
+  position: relative;
+  overflow-x: auto;
+}
+
+.dataTable td, .dataTable th {
+  padding: .625em;
+  line-height: 1.5em;
+  border-bottom: 1px dashed #ccc;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dataTable th {
+  text-align: left;
+  background: rgba(0, 0, 0, 0.14);
+  border-bottom: 1px dashed #aaa;
+}
+
+.dataTable tbody tr {
+  display: table-cell;
+}
+
+.dataTable tbody td {
+  display: block;
+}
+
+.dataTable tr:nth-child(odd) {
+	background: rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (min-width: 50em) {
+
+  .dataTable {
+    display: table;
+  }
+  
+  .dataTable thead {
+    display: table-header-group;
+    float: none;
+  }
+  
+  .dataTable tbody {
+    display: table-row-group;
+  }
+  
+  .dataTable thead tr, .dataTable tbody tr {
+    display: table-row;
+  }
+  
+  .dataTable th, .dataTable tbody td {
+    display: table-cell;
+  }
+  
+  .dataTable td, .dataTable th {
+    width: auto;
+  }
+  
+}
+        </style>
+    </head>
+    <body>
+
+      <div class="navbar">
+        <a class="active" href='index'> <i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
+      </div>
+
+        <p><h1>Student Details</h1></p>
+
+        <table class="dataTable">
+            <tr>
+                <th>STUDENT ID</th>
+                <th>STUDENT NAME</th>
+                <th>STUDENT EMAIL</th>
+                <th>STUDENT AGE</th>
+                <th>MENTOR ID</th>
+                <th>ACTION</th>
+            </tr>
+
+            {% for x in displayStu %}
+            <tr>
+
+                <td> {{x.stuid}} </td>
+                <td> {{x.stuname}} </td>
+                <td> {{x.stuemail}} </td>
+                <td> {{x.stuage}} </td>
+                <td> {{x.stumentor_id}} </td>
+                <td> <a href="update/{{x.stuid}}"> EDIT </a>
+                  | <a href="delete/{{x.stuid}}"> | DELETE </a> </td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+        <p>{{message}}</p>
+    </body>
+</html>

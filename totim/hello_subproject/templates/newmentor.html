@@ -1,0 +1,30 @@
+
+
+<html>
+
+<body>
+
+    <div class="navbar">
+        <a class="active" href='index'> <i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
+      </div>
+
+<h1> We will use POST method now. So let us add new Mentor! </h1>
+
+<form action="" method="post">
+
+    {% csrf_token %}
+    <b><h3>Enter mentor id: </h3></b>
+    <input type="text" name="menid" placeholder="">
+    <b><h3>Enter mentor name: </h3></b>
+    <input type="text" name="menname" placeholder="">
+    <b><h3>Enter mentor room no.: </h3></b>
+    <input type="text" name="menroomno" placeholder="">
+
+   <p> <input type="submit" value="SUBMIT"></p> {{message}}
+
+</form>
+
+</body>
+
+</html>

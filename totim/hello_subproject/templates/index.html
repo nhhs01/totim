@@ -1,0 +1,39 @@
+<html>
+    <body>
+        {% load static %}
+        <header> <b>Welcome to my Homepage</b> </header>
+
+       <img src={% static "mickey.jpeg"%} alt="Mickey1">
+        
+       <center><p><a href="desc"> Minnie </a></p></center> 
+
+        <p>Everything down here is exercise from Chapter 3. </p>
+
+        {% with firstname="IU" %}
+        <h1> Hello {{ firstname }}, how are you. This is using HTML.</h1>
+        {% endwith %}
+
+        <h2> Hello {{firstname1}}, are you okay? We called this from models.py </h2>
+
+        <p>Now we will display Mentor table</p>
+
+        <table>
+            <tr>
+                <th>MENTOR ID</th>
+                <th>MENTOR NAME</th>
+                <th> ROOM NO</th>
+            </tr>
+
+            {% for x in displayMen %}
+            <tr>
+
+                <td> {{x.menid}} </td>
+                <td> {{x.menname}} </td>
+                <td> {{x.menroomno}} </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <p>{{message}}</p>
+    </body>
+</html>
